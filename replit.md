@@ -1,10 +1,11 @@
-# [Project name]
+# MedQorix
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+MedQorix is a responsive biomedical-waste operations workspace for hospital teams, with AI-assisted identification, collection coordination, traceability, and facility insights.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/medqorix run dev` — run the MedQorix web app
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
@@ -22,23 +23,34 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/medqorix/src/App.tsx` — role-aware app shell, routes, demo data, and workflows
+- `artifacts/medqorix/src/index.css` — MedQorix theme tokens, responsive utilities, and motion
+- `artifacts/medqorix/index.html` — page metadata and product title
+- `lib/api-spec/openapi.yaml` — shared API contract when backend capabilities are added
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The first release is demo-first and works without external credentials or a configured Firebase project.
+- Demo state is persisted in browser localStorage so the complete workflow can be demonstrated across navigation and reloads.
+- Role switching is available from Profile to make all three operational perspectives easy to demonstrate.
+- The visual language uses deep teal/navy for operational focus, aqua for positive flow, amber for attention, and red for urgent states.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Hospital Staff can review facility activity, run an AI-assisted sample scan, and create collection requests.
+- Collection Staff can advance requests through assignment, route, and completion states.
+- Administrators can review analytics, manage people, configure waste categories, and read notifications.
+- Waste History includes a traceability timeline for each record.
+- Dark mode, mobile bottom navigation, desktop sidebar navigation, search/filter states, dialogs, and empty states are included.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- The product name is MedQorix and must remain the only product name used in the app.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The demo data is intentionally local-only and is not a substitute for a production persistence or authentication layer.
+- AI scan copy must remain clearly AI-assisted and non-authoritative; hospital protocol verification is the final decision point.
 
 ## Pointers
 

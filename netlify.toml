@@ -1,0 +1,3 @@
+[build]
+  command = "pnpm --filter @workspace/medqorix run build"
+  publish = "artifacts/medqorix/dist" 
